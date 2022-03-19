@@ -3,14 +3,15 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.server.ServerEndpoint;
 import javax.websocket.Session;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @ServerEndpoint("/chat")
 public class ChatServer{
-    public Logger logger;
-    private static List<Session> ServerSessions;
+    public Logger logger = Logger.getLogger(ChatServer.class.getName());
+    private static List<Session> ServerSessions = new ArrayList<>();
 
     public static void setServerSessions(List<Session> serverSessions) {
         ServerSessions = serverSessions;
